@@ -4,6 +4,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
+#Please ignore this typo, we have just accepted it at this point
 df = pd.read_csv("Chronic_Kidney_Dsease_data_Classification.csv")
 
 X = df.drop(columns=['Diagnosis'])

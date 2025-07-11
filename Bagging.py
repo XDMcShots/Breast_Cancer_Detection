@@ -27,12 +27,9 @@ bagging_clf = BaggingClassifier(
     n_jobs=-1
 )
 
-# 🚀 Train the model
 bagging_clf.fit(X_train, y_train)
 
-# 🔮 Make predictions
 y_pred = bagging_clf.predict(X_test)
 
-# 📈 Evaluate performance
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Bagging Classifier Accuracy: {accuracy:.4f}")
