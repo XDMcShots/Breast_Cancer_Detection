@@ -4,12 +4,16 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-
-df = pd.read_csv("Chronic_Kidney_Dsease_data_Classification.csv")   # replace with your CSV file name
+df = pd.read_csv("Chronic_Kidney_Dsease_data_Classification.csv")
 
 X = df.drop(columns=["Diagnosis"])
 y = df["Diagnosis"]
 
+for col in X.columns:
+    if X[col].dtype == 'object':
+        X[col] = X[col].astype('category').cat.codes
+
+y = y.astype('category').cat.codes
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
